@@ -6,11 +6,11 @@ using namespace std;
  * Function prototypes
 *******************************************************************************/
 
-unsigned fact(unsigned);
-unsigned fib(unsigned);
-unsigned mult(unsigned, unsigned);
-unsigned power(unsigned, unsigned);
-unsigned product(unsigned, unsigned);
+unsigned fact(unsigned, unsigned);
+unsigned fib(unsigned, unsigned, unsigned);
+unsigned mult(unsigned, unsigned, unsigned);
+unsigned power(unsigned, unsigned, unsigned);
+unsigned product(unsigned, unsigned, unsigned);
 
 /*******************************************************************************
  * Description:
@@ -26,16 +26,16 @@ unsigned product(unsigned, unsigned);
 
 int main() {
     // try a ridiculous case that won't work without tail recursion
-    cout << "6 * 123000 = " << mult(6, 123000) << endl;
+    cout << "6 * 123000 = " << mult(6, 123, 0) << endl;
     
     // these functions can't demonstrate the usefulness of tail recursion
     // due to data type overflow, but still, good practice
-    cout << "3 ^ 10 = " << power(3, 10) << endl;
-    cout << "8 * 9 * ... * 15 = " << product(8, 15) << endl;
-    cout << "10! = " << fact(10) << endl;
+    cout << "3 ^ 10 = " << power(3, 10, 1) << endl;
+    cout << "8 * 9 * ... * 15 = " << product(8, 15, 1) << endl;
+    cout << "10! = " << fact(10, 1) << endl;
 
     // without tail recursion, this next call is going to take a while
-    cout << "50th Fibonacci number is " << fib(50) << endl;
+    cout << "50th Fibonacci number is " << fib(50, 0, 1) << endl;
 
     // terminate
     return 0;
